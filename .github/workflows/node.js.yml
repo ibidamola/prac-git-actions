@@ -31,12 +31,14 @@ build:
     uses: actions/checkout@v2
 
     - # Sets up the specified version of Node.js
-    name: Use Node.js ${{" matrix.node-version "}}
+    name: Use Node.js ${{ matrix.node-version }}
     uses: actions/setup-node@v1
     with:
-        node-version: ${{" matrix.node-version "}}
+        node-version: ${{ matrix.node-version }}
 
     - # Installs node modules as specified in the project's package-lock.json
+    name: Install dependencies
+  
     run: npm ci
 
     - # This command will only run if a build script is defined in the package.json
